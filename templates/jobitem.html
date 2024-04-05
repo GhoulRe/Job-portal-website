@@ -1,9 +1,9 @@
-<div class="mb-3 border-bottom pb-2 row">
+<div class="mb-3 border-bottom pb-2 row w-100 p-3">
   <div class="col-9">
-  <h4 style="color:rgb(120,120,120,120);margin-bottom:4px;">{{job['Title']}}</h4>
-  <div><b>Location:</b> {{job['Location']}}</div>
-  {% if 'Salary' in job %}
-   <div><b>Salary:</b> {{job['Salary']}}</div>
+  <h4 style="color:rgb(120,120,120,120);margin-bottom:4px;">{{job['title']}}</h4>
+  <div><b>Location:</b> {{job['location']}}</div>
+  {% if 'salary' in job %}
+   <div><b>Salary:</b> {{job['salary']}}</div>
   {% endif %}
   </div>
   <div class="col-3">
