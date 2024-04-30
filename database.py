@@ -14,7 +14,6 @@ def load_jobs_from_db():
       jobs.append(row._asdict())
   return jobs
 
-
 def load_work_from_db(id):
   with engine.connect() as conn:
     result = conn.execute(text("SELECT * FROM JOBS WHERE id = :val"),
@@ -58,3 +57,11 @@ def add_application_to_db(job_id, data):
       # Commit the transaction
       conn.commit()
       return result
+
+def load_applications_from_db():
+ with engine.connect() as conn:
+  result = conn.execute(text("select * from applications"))
+  applications = []
+  for row in result.all():
+    applications.append(row._asdict()) 
+    return applications
