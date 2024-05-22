@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <title>Register</title>
+    <style>
+        .main-login{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+         .main-login form{
+            width: 23%;
+            margin-top: 15%;
+        }
+        .buttonblock{
+            justify-content:space-between;
+            align-items:center;
+        } 
+        .buttonblock .btn1{
+            padding: 3px;
+            width: 47% !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>Register</h1>
+    <form method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <label for="role">Role:</label>
+        <select id="role" name="role" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select><br>
+        <button type="submit">Register</button>
+    </form>
+    <a href="{{ url_for('login') }}">Login</a> -->
+
+    <div class='main-login'>
+
+    <form class="form-login" method="POST">
+        <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+        <!-- 'sr-only' will hide the text : 'Email Address'. So, 'Email Address' will be invisible -->
+        <label for="email" class="sr-only">Email Address</label>
+        <!-- 'autofocus' will highlight the input column initially -->
+        <input 
+            type="email" 
+            id="email"
+            name="email"
+            class="form-control mb-2"
+            placeholder="Email Address"
+            required
+            autofocus
+        >
+        <!-- 'sr-only' will hide the text : 'Password'. So, 'Password' will be invisible -->
+        <label for="password" class="sr-only">Password</label>
+        <input 
+            type="password" 
+            id="password"
+            name="password"
+            class="form-control mb-2"
+            placeholder="Password"
+            required
+        >
+        <!-- <label for="role">Role:</label>
+        <select id="role" name="role" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select><br> -->
+
+        <label for="role">Role:</label>
+        <select for="role" name="role" required class="form-select" aria-label="Default select example">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select><br>
+        <!-- <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div> -->
+        <!-- 'btn-block' will make the button wider -->
+        <div class="d-flex buttonblock">
+        <a class="btn1 btn btn-lg btn-primary btn-block" style="margin-top: .5rem;" type="submit">
+            Register
+        </a>
+        <a  class="btn1 btn btn-lg btn-primary btn-block" href="{{ url_for('login') }}">Login</a>
+            </div>
+    </form>
+        </div>    
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

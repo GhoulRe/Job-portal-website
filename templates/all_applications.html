@@ -9,34 +9,33 @@
   <img src="https://4b73d903-adb4-441d-a4ce-73599253a754-00-3syut7o23dyjt.sisko.replit.dev/static/careers.jpg" alt="banner"  style="object-fit:cover;height:300px;width:100%;">
 
   <div class="container pt-2">
-    {% for application in applications %}
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">All Applications</h1>
+        <div class="applications-list">
+            {% for application in applications %}
+                <hr>
+                <b class="mb-0 mt-2">Name:</b>
+                <div class="mb-2">{{ application['full_name'] }}</div>
 
-    <hr>
-    
-    <b class="mb-0 mt-2">Name</b>
-    <div class="mb-2">{{application['full_name']}}</div>
+                <b class="mb-0 mt-2">Job ID:</b>
+                <div class="mb-2">{{ application['job_id'] }}</div>
 
-    <b class="mb-0 mt-2">Job</b>
-    <div class="mb-2">{{application['job_id']}}</div>
-    
-    <b>Email</b>
-    <div class="mb-2">{{application['email']}}</div>
+                <b>Email:</b>
+                <div class="mb-2">{{ application['email'] }}</div>
 
-    <b>Education</b>
-    <div class="mb-2">{{application['education']}}</div>
+                <b>Education:</b>
+                <div class="mb-2">{{ application['education'] }}</div>
 
-    <b>Work Experience</b>
-    <div class="mb-2">{{application['work_experience']}}</div>
+                <b>Work Experience:</b>
+                <div class="mb-2">{{ application['work_experience'] }}</div>
 
-    <b>Resume URL</b>
-    <div class="mb-2">{{application['resume_url']}}</div>
+                <b>Resume URL:</b>
+                <div class="mb-2">{{ application['resume_url'] }}</div>
 
-    <b>LinkedIN URL</b>
-    <div class="mb-2">{{application['linkedin_url']}}</div>
-
-    <hr>
-    
-    {% endfor %}
+                <b>LinkedIn URL:</b>
+                <div class="mb-2">{{ application['linkedin_url'] }}</div>
+                <hr>
+            {% endfor %}
   </div>
      {% include 'footer.html' %}
   </body>

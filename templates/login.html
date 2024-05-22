@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+    <title>Login</title>
+    <style>
+        .main-login{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+         .main-login form{
+            width: 23%;
+            margin-top: 15%;
+        }
+        .buttonblock{
+            justify-content:space-between;
+            align-items:center;
+        } 
+        .buttonblock .btn1{
+            padding: 3px;
+            width: 47% !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>Login</h1>
+    <form method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    <a href="{{ url_for('register') }}">Register</a> -->
+    <div class='main-login'>
+
+    <form class="form-login" method="POST">
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+        <!-- 'sr-only' will hide the text : 'Email Address'. So, 'Email Address' will be invisible -->
+        <label for="email" class="sr-only">Email Address</label>
+        <!-- 'autofocus' will highlight the input column initially -->
+        <input 
+            type="email" 
+            id="email"
+            name="email"
+            class="form-control mb-2"
+            placeholder="Email Address"
+            required
+            autofocus
+        >
+        <!-- 'sr-only' will hide the text : 'Password'. So, 'Password' will be invisible -->
+        <label for="password" class="sr-only">Password</label>
+        <input 
+            type="password" 
+            id="password"
+            name="password"
+            class="form-control mb-2"
+            placeholder="Password"
+            required
+        >
+        <!-- <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div> -->
+        <!-- 'btn-block' will make the button wider -->
+        <div class="d-flex buttonblock">
+        <button class="btn1 btn btn-lg btn-primary btn-block" style="margin-top: .5rem;" type="submit">
+            Login
+        </button>
+        <a class="btn1 btn btn-lg btn-primary btn-block" href="{{ url_for('register') }}">Register</a>
+        </div>
+    </form>
+        </div>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

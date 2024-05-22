@@ -6,6 +6,11 @@
       Jobs
     </a>
     </div>  
-    <a href="/applications" type="button" class="btn btn-outline-primary">Applications</a>
+     {% if session['user_role'] == 'admin' %}
+    <a style="float: right;margin-right: 10px;margin-left: auto;" href="/applications" type="button" class="btn btn-outline-primary">Applications</a>
+    {% endif %}
+    {% if session['user_id'] %}
+    <a href="{{ url_for('logout') }}" type="button" class="btn btn-outline-primary">Logout</a>
+     {% endif %}
   </div>
 </nav>
